@@ -1,1 +1,81 @@
-Olá mundo
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ProjetoDraMariana.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    <div class="menu-container">
+        <nav class="menu">
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#block2">Áreas de atuação</a></li>
+                <li><a href="#block3">Sobre</a></li>
+                <li><a href="#block4">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="block1">
+        <div id="img1"></div>
+        <div id="text1"></div>
+    </div>
+
+    <div id="block2" class="expand-container">
+        <button class="expand-btn" onclick="toggleContent(2)">
+            <content>Áreas de atuação</content>
+            <span id="arrow2">▼</span>
+        </button>
+
+        <div id="text2" style="display: none;"></div>
+    </div>
+
+    <div id="block3" class="expand-container">
+        <button class="expand-btn" onclick="toggleContent(3)">
+            <content>Sobre</content>
+            <span id="arrow3">▼</span>
+        </button>
+
+        <div id="text3" style="display: none;">
+            <div id="img2"></div>
+            <div id="text4"></div>
+        </div>
+    </div>
+
+    <div id="block4" class="expand-container">
+        <button class="expand-btn" onclick="toggleContent(5)">
+            <content>Contato</content>
+            <span id="arrow4">▼</span>
+        </button>
+
+        <div id="text5" style="display: none;"></div>
+    </div>
+
+
+
+
+
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Dra. Mariana Moreira - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
